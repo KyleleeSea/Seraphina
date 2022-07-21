@@ -1,42 +1,98 @@
-import { useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import Navigation from "../../Navbar/Navbar.js";
+import { Container, Row, Card, Col } from "react-bootstrap";
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
-const stripePromise = loadStripe(
-    process.env.REACT_APP_STRIPE_KEY
-);
-
-
-const Pricing = () => {
-    const [stripeError, setStripeError] = useState();
-    const [loading, setLoading] = useState();
-
-    const handleClick = async () => {
-        setLoading(true);
-        const stripe = await stripePromise;
-        const { error } = await stripe.redirectToCheckout({
-            lineItems: [
-                {
-                    price: process.env.REACT_APP_5ID,
-                    quantity: 1,
-                },
-            ],
-            mode: "payment",
-            cancelUrl: `${window.location.origin}/pricing`,
-            successUrl: window.location.origin
-        });
-
-        if (error) {
-            setLoading(false);
-            setStripeError(error);
-        }
-    };
+function Pricing() {
+    const { user } = useAuth0();
 
     return (
-        <>
-            {stripeError && <p style={{ color: "red" }}>{stripeError}</p>}
-            <button role="link" onClick={handleClick} disabled={loading}>Go to checkout</button>
-        </>
-    )
+        <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENTID }}>
+            <Navigation />
+            <Container>
+                <Row>
+                    <Col>
+                        <Card>
+                            <Card.Body>
+                                <PayPalButtons
+                                    createOrder={(data, actions) => {
+                                        return actions.order.create({
+                                            purchase_units: [
+                                                {
+                                                    amount: {
+                                                        value: "1.99",
+                                                    },
+                                                },
+                                            ],
+                                        });
+                                    }}
+                                    onApprove={(data, actions) => {
+                                        return actions.order.capture().then((details) => {
+                                            // user.app_metadata.tokens = user.app_metadata.tokens + 250;
+                                            // auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
+
+                                        });
+                                    }}
+                                />
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    {/* <Col>
+                        <Card>
+                            <Card.Body>
+                                <PayPalButtons
+                                    createOrder={(data, actions) => {
+                                        return actions.order.create({
+                                            purchase_units: [
+                                                {
+                                                    amount: {
+                                                        value: "1.99",
+                                                    },
+                                                },
+                                            ],
+                                        });
+                                    }}
+                                    onApprove={(data, actions) => {
+                                        return actions.order.capture().then((details) => {
+                                            const name = details.payer.name.given_name;
+                                            alert(`Transaction completed by ${name}`);
+                                        });
+                                    }}
+                                />
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col>
+                        <Card>
+                            <Card.Body>
+                                <PayPalButtons
+                                    createOrder={(data, actions) => {
+                                        return actions.order.create({
+                                            purchase_units: [
+                                                {
+                                                    amount: {
+                                                        value: "1.99",
+                                                    },
+                                                },
+                                            ],
+                                        });
+                                    }}
+                                    onApprove={(data, actions) => {
+                                        return actions.order.capture().then((details) => {
+                                            const name = details.payer.name.given_name;
+                                            alert(`Transaction completed by ${name}`);
+                                        });
+                                    }}
+                                />
+                            </Card.Body>
+                        </Card>
+                    </Col> */}
+                </Row>
+            </Container>
+        </PayPalScriptProvider>
+    );
 }
 
-export default Pricing;
+export default withAuthenticationRequired(Pricing, {
+    returnTo: "http://localhost:3000/generate"
+});

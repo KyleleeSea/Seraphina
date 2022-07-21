@@ -14,7 +14,7 @@ const Navigation = () => {
 
     return (
         <Navbar expand="lg" className={width >= 768 ? "mx-3" : "mx-2"}>
-            < Navbar.Brand href="/" > Seraphina</Navbar.Brand >
+            < Navbar.Brand href="/generate" > Seraphina</Navbar.Brand >
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
