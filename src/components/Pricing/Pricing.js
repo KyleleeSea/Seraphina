@@ -2,9 +2,18 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import Navigation from "../../Navbar/Navbar.js";
 import { Container, Row, Card, Col } from "react-bootstrap";
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import Auth0Lock from "auth0-lock";
 
 function Pricing() {
     const { user } = useAuth0();
+
+    console.log(user)
+    console.log(user['http://localhost:3000/app_metadata'].tokens)
+
+    const lock = new Auth0Lock(
+        process.env.REACT_APP_AUTH0_CLIENT_ID,
+        process.env.REACT_APP_AUTH0_DOMAIN
+    );
 
     return (
         <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENTID }}>
@@ -37,56 +46,6 @@ function Pricing() {
                             </Card.Body>
                         </Card>
                     </Col>
-                    {/* <Col>
-                        <Card>
-                            <Card.Body>
-                                <PayPalButtons
-                                    createOrder={(data, actions) => {
-                                        return actions.order.create({
-                                            purchase_units: [
-                                                {
-                                                    amount: {
-                                                        value: "1.99",
-                                                    },
-                                                },
-                                            ],
-                                        });
-                                    }}
-                                    onApprove={(data, actions) => {
-                                        return actions.order.capture().then((details) => {
-                                            const name = details.payer.name.given_name;
-                                            alert(`Transaction completed by ${name}`);
-                                        });
-                                    }}
-                                />
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col>
-                        <Card>
-                            <Card.Body>
-                                <PayPalButtons
-                                    createOrder={(data, actions) => {
-                                        return actions.order.create({
-                                            purchase_units: [
-                                                {
-                                                    amount: {
-                                                        value: "1.99",
-                                                    },
-                                                },
-                                            ],
-                                        });
-                                    }}
-                                    onApprove={(data, actions) => {
-                                        return actions.order.capture().then((details) => {
-                                            const name = details.payer.name.given_name;
-                                            alert(`Transaction completed by ${name}`);
-                                        });
-                                    }}
-                                />
-                            </Card.Body>
-                        </Card>
-                    </Col> */}
                 </Row>
             </Container>
         </PayPalScriptProvider>

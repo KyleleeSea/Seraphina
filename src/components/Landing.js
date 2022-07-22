@@ -1,7 +1,6 @@
 import React from "react";
 import { Component } from "react";
 import Navigation from "../Navbar/Navbar.js";
-import { withAuthenticationRequired } from '@auth0/auth0-react';
 
 class Landing extends Component {
     render() {

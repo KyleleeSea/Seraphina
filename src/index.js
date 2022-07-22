@@ -15,6 +15,7 @@ root.render(
       redirectUri={window.location.origin}
       useRefreshTokens
       cacheLocation="localstorage"
+      scope='user_metadata app_metadata'
 
     >
       <App />
