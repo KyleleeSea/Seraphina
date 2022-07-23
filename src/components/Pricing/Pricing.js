@@ -4,10 +4,20 @@ import { Container, Row, Card, Col } from "react-bootstrap";
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import React, { useEffect, useState } from "react";
 
+// Images
+import MidTier from '../../assets/MidTier.jpg'
+import LowTier from '../../assets/LowTier.jpg'
+import TopTier from '../../assets/TopTier.png'
+
+// Styles
+import { Text } from "./Pricing.styles.js";
+
 function Pricing() {
     const { user, getAccessTokenSilently } = useAuth0();
+    // Tokens being initialized to '' doesn't impact functionality, since the token reference in update function has its own API call 
     const [tokens, setTokens] = useState('');
 
+    // Set tokens state 
     useEffect(() => {
         const getTokens = async () => {
             const domain = process.env.REACT_APP_AUTH0_DOMAIN;
@@ -18,7 +28,6 @@ function Pricing() {
                     scope: "read:current_user",
                 });
 
-                console.log(user)
                 const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
 
                 const metadataResponse = await fetch(userDetailsByIdUrl, {
@@ -49,6 +58,7 @@ function Pricing() {
             });
             const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
 
+            // Get local user token data with API call for comparison
             const currentMetadata = await fetch(userDetailsByIdUrl, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
@@ -71,6 +81,7 @@ function Pricing() {
                     }),
                 })
             ).json();
+            // Trigger rerender
             setTokens(tokenCounter + num_add)
 
         } catch (e) {
@@ -81,19 +92,22 @@ function Pricing() {
 
     return (
         <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENTID }}>
-            <Navigation tokens={tokens} />
-            <Container>
+            <Navigation tokens={tokens} className="mb-5" />
+            <Container className="mt-5">
                 <Row>
                     <Col>
                         <Card>
                             <Card.Body>
+                                <Text>50 Tokens</Text>
+                                <Text>$4.99</Text>
+                                <Card.Img src={LowTier} variant="top" />
                                 <PayPalButtons
                                     createOrder={(data, actions) => {
                                         return actions.order.create({
                                             purchase_units: [
                                                 {
                                                     amount: {
-                                                        value: "1.99",
+                                                        value: "4.99",
                                                     },
                                                 },
                                             ],
@@ -101,7 +115,68 @@ function Pricing() {
                                     }}
                                     onApprove={(data, actions) => {
                                         return actions.order.capture().then((details) => {
-                                            updateUserMetadata(250)
+                                            updateUserMetadata(50)
+                                            alert(`Transaction completed successfully! +250 tokens`)
+                                        });
+                                    }}
+                                />
+                            </Card.Body>
+                        </Card>
+                    </Col>
+
+                    <Col>
+                        <Card>
+                            <Card.Body>
+                                <Text>125 Tokens</Text>
+                                <Text>$9.99</Text>
+
+                                <Card.Img src={MidTier} variant="top" />
+                                <PayPalButtons
+                                    createOrder={(data, actions) => {
+                                        return actions.order.create({
+                                            purchase_units: [
+                                                {
+                                                    amount: {
+                                                        value: "9.99",
+                                                    },
+                                                },
+                                            ],
+                                        });
+                                    }}
+                                    onApprove={(data, actions) => {
+                                        return actions.order.capture().then((details) => {
+                                            updateUserMetadata(125)
+                                            alert(`Transaction completed successfully! +550 tokens`)
+                                        });
+                                    }}
+                                />
+                            </Card.Body>
+                        </Card>
+                    </Col>
+
+                    <Col>
+                        <Card>
+                            <Card.Body>
+                                <Text>450 Tokens</Text>
+                                <Text>$29.99</Text>
+
+                                <Card.Img src={TopTier} variant="top" />
+                                <PayPalButtons
+                                    createOrder={(data, actions) => {
+                                        return actions.order.create({
+                                            purchase_units: [
+                                                {
+                                                    amount: {
+                                                        value: "29.99",
+                                                    },
+                                                },
+                                            ],
+                                        });
+                                    }}
+                                    onApprove={(data, actions) => {
+                                        return actions.order.capture().then((details) => {
+                                            updateUserMetadata(450)
+                                            alert(`Transaction completed successfully! You now have +2000 tokens`)
                                         });
                                     }}
                                 />

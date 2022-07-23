@@ -2,17 +2,46 @@ import React from "react";
 import SuggestionBox from "./SuggestionBox/SuggestionBox.js";
 import Navigation from './Navbar/Navbar.js'
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import { useEffect, useState } from 'react';
 
 function Main() {
-    const { user } = useAuth0();
+    const { user, getAccessTokenSilently } = useAuth0();
+    const [tokens, setTokens] = useState('');
 
-    // Hardcoded link value, must be changed later. 
-    var tokens = user['http://localhost:3000/user_metadata'].tokens
+    // Set tokens state 
+    useEffect(() => {
+        const getTokens = async () => {
+            const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+
+            try {
+                const accessToken = await getAccessTokenSilently({
+                    audience: `https://${domain}/api/v2/`,
+                    scope: "read:current_user",
+                });
+
+                const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
+
+                const metadataResponse = await fetch(userDetailsByIdUrl, {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                });
+
+                const userObject = await metadataResponse.json();
+
+                setTokens(userObject.user_metadata.tokens);
+            } catch (e) {
+                console.log(e.message);
+            }
+        };
+        getTokens();
+    }, [getAccessTokenSilently, user?.sub]);
 
     return (
         <div>
             <Navigation tokens={tokens} />
-            <SuggestionBox tokens={tokens} />
+            {/* Passing setTokens as props allows child component SuggestionBox to setTokens in Main parent component */}
+            <SuggestionBox tokens={tokens} setTokens={setTokens} />
         </div>
     )
 }

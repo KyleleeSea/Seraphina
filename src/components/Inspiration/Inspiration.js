@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 
-class Loading extends Component {
+class Inspiration extends Component {
     render() {
         return (
             <div>
@@ -12,4 +12,4 @@ class Loading extends Component {
     }
 }
 
-export default Loading;
+export default Inspiration;
