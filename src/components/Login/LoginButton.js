@@ -4,6 +4,7 @@ import React from "react";
 const LoginButton = () => {
     const { loginWithRedirect, isAuthenticated } = useAuth0();
 
+    // !isAuthenticated check hides button if user is authenticated.
     return (
         !isAuthenticated && (
             <span onClick={() => loginWithRedirect()}>

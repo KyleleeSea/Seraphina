@@ -29,7 +29,7 @@ const Navigation = (props) => {
             </Navbar.Collapse>
             {width >= 1000 &&
                 <Nav>
-                    <Nav.Link href="/">Tokens: {props.tokens}</Nav.Link>
+                    <Nav.Link href="/pricing">Tokens: {props.tokens}</Nav.Link>
                 </Nav>
             }
         </Navbar >

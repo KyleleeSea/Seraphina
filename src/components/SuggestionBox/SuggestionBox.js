@@ -71,7 +71,7 @@ class SuggestionBox extends Component {
                         <Button type="submit">
                             Generate Inspiration
                         </Button>
-                        <TokenText>Tokens to Generate: x. Tokens Remianing: y.</TokenText>
+                        <TokenText>Tokens to Generate: x. Tokens Remaining: {this.props.tokens}.</TokenText>
                     </form>
                 </Container>
                 <RenderText>

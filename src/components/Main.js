@@ -1,18 +1,20 @@
 import React from "react";
-import { Component } from "react";
 import SuggestionBox from "./SuggestionBox/SuggestionBox.js";
 import Navigation from './Navbar/Navbar.js'
-import { withAuthenticationRequired } from '@auth0/auth0-react';
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
-class Main extends Component {
-    render() {
-        return (
-            <div>
-                <Navigation />
-                <SuggestionBox />
-            </div>
-        )
-    }
+function Main() {
+    const { user } = useAuth0();
+
+    // Hardcoded link value, must be changed later. 
+    var tokens = user['http://localhost:3000/user_metadata'].tokens
+
+    return (
+        <div>
+            <Navigation tokens={tokens} />
+            <SuggestionBox tokens={tokens} />
+        </div>
+    )
 }
 
 export default withAuthenticationRequired(Main, {

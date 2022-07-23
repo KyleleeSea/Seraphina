@@ -2,19 +2,18 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import Navigation from '../Navbar/Navbar.js'
 import { Container, Row, Card, Col } from "react-bootstrap";
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
-import React, { useState } from "react";
-
-// import { useTokensFetch } from "../hooks/useTokensFetch.js";
+import React from "react";
 
 function Pricing() {
     const { loginWithRedirect, user, getAccessTokenSilently } = useAuth0();
 
+    // Hardcoded link value, must be changed later. 
     var tokens = user['http://localhost:3000/user_metadata'].tokens
-    console.log(tokens)
 
     const updateUserMetadata = async (num_add) => {
         const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 
+        // Makes API call to auth0 to update metadata
         try {
             const accessToken = await getAccessTokenSilently({
                 audience: `https://${domain}/api/v2/`,
