@@ -15,7 +15,9 @@ root.render(
       redirectUri={window.location.origin}
       useRefreshTokens
       cacheLocation="localstorage"
-      scope='user_metadata app_metadata'
+      scope='user_metadata app_metadata read:current_user update:current_user_metadata'
+      audience="https://seraphina.us.auth0.com/api/v2/"
+
 
     >
       <App />
