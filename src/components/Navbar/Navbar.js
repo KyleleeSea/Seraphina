@@ -4,12 +4,11 @@ import Container from 'react-bootstrap/esm/Container';
 import { useState } from 'react';
 import LoginButton from '../Login/LoginButton.js';
 import LogoutButton from '../Logout/LogoutButton.js';
-import { useAuth0 } from '@auth0/auth0-react';
+import { useTokensFetch } from "../hooks/useTokensFetch.js";
 
 const Navigation = () => {
     // Utilizing Auth0 rules to access tokens 
-    const { user } = useAuth0();
-    const current_tokens = user['http://localhost:3000/user_metadata'].tokens;
+    const { tokens, setTokens } = useTokensFetch();
 
     const [width, setWidth] = useState(window.innerWidth)
 
@@ -30,7 +29,7 @@ const Navigation = () => {
             </Navbar.Collapse>
             {width >= 1000 &&
                 <Nav>
-                    <Nav.Link href="/">Tokens: {current_tokens}</Nav.Link>
+                    <Nav.Link href="/">Tokens: {tokens}</Nav.Link>
                 </Nav>
             }
         </Navbar >
