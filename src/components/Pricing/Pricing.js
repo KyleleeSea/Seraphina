@@ -7,9 +7,6 @@ import React from "react";
 function Pricing() {
     const { loginWithRedirect, user, getAccessTokenSilently } = useAuth0();
 
-    // Hardcoded link value, must be changed later. 
-    var tokens = user['http://localhost:3000/user_metadata'].tokens
-
     const updateUserMetadata = async (num_add) => {
         const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 
@@ -20,6 +17,17 @@ function Pricing() {
                 scope: "update:current_user_metadata"
             });
             const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
+
+            const currentMetadata = await fetch(userDetailsByIdUrl, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+
+            const currentMetadataJson = await currentMetadata.json();
+
+            const tokens = currentMetadataJson.user_metadata.tokens
+
             const { user_metadata } = await (
                 await fetch(userDetailsByIdUrl, {
                     method: "PATCH",
@@ -33,8 +41,6 @@ function Pricing() {
                 })
             ).json();
 
-            // Must relogin for auth0 to update
-            loginWithRedirect()
         } catch (e) {
             console.log(e.message);
         }
@@ -42,7 +48,7 @@ function Pricing() {
 
     return (
         <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENTID }}>
-            <Navigation tokens={tokens} />
+            {/* <Navigation tokens={tokens} /> */}
             <Container>
                 <Row>
                     <Col>
