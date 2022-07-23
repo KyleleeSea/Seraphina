@@ -2,10 +2,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/esm/Container';
 import { useState } from 'react';
-import LoginButton from '../components/Login/LoginButton.js';
-import LogoutButton from '../components/Logout/LogoutButton.js';
+import LoginButton from '../Login/LoginButton.js';
+import LogoutButton from '../Logout/LogoutButton.js';
 
-const Navigation = () => {
+const LandingNav = () => {
     const [width, setWidth] = useState(window.innerWidth)
 
     window.addEventListener('resize', function (event) {
@@ -23,13 +23,8 @@ const Navigation = () => {
                     <Nav.Link><LogoutButton /></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
-            {width >= 1000 &&
-                <Nav>
-                    <Nav.Link href="/">Tokens: xyz</Nav.Link>
-                </Nav>
-            }
         </Navbar >
     );
 }
 
-export default Navigation;
+export default LandingNav;
