@@ -12,13 +12,13 @@ export default function TextInput() {
         <div>
             <TextArea
                 type="text"
-                minLength={300}
+                minLength={200}
                 maxLength={500}
                 onChange={recalculate}
                 required
                 name="input"
             />
-            <Text style={{ color: (textAreaCount > 300 ? '#009e4c' : '#8c0200') }}>{textAreaCount}/500</Text>
+            <Text style={{ color: (textAreaCount > 200 ? '#009e4c' : '#8c0200') }}>{textAreaCount}/500</Text>
         </div>
     );
 }

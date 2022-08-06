@@ -22,7 +22,7 @@ margin-bottom: 3%;
     width: 100%;
     background: rgba(255, 255, 255, 0.6);
     border-radius: 5px;
-    background-image: linear-gradient(to right, #fff3ab, #FFDC09);
+    background-color: linear-gradient(to right, #fff3ab, #FFDC09);
     background-repeat: no-repeat;
  }
 

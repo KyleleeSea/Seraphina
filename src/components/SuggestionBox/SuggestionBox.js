@@ -105,7 +105,7 @@ export default function SuggestionBox(props) {
 
                     const response = await openai.createCompletion({
                         model: "davinci:ft-personal-2022-07-30-05-34-47",
-                        prompt: `${formDataObj.input.replace("prompt: ", '')}`,
+                        prompt: `${formDataObj.input}\n\n###\n\n`,
                         temperature: 0.6,
                         max_tokens: 50,
                         top_p: 1,

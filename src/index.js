@@ -17,6 +17,7 @@ root.render(
       scope='user_metadata app_metadata read:current_user update:current_user_metadata'
       audience="https://seraphina.us.auth0.com/api/v2/"
       useRefreshTokens={true}
+      screen_hint="signup"
     >
       <App />
     </Auth0Provider>

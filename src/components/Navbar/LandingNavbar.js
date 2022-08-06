@@ -13,7 +13,7 @@ const LandingNav = () => {
     })
 
     return (
-        <Navbar expand="lg" className={width >= 768 ? "mx-3" : "mx-2"}>
+        <Navbar expand="lg" className={width >= 768 ? "mx-3" : "mx-2"} fixed="top" >
             < Navbar.Brand href="/generate" > Seraphina</Navbar.Brand >
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
