@@ -1,0 +1,8 @@
+
+export default function LandingBulletpoints() {
+    return (
+        <div>
+            <h1>Text</h1>
+        </div>
+    )
+}

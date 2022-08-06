@@ -1,72 +1,72 @@
 import styled from "styled-components";
-import LandingImage from '../../assets/LandingImage.jpg'
 
-export const BackgroundImage = styled.div`
-    background-image: url(${LandingImage});
-    background-blend-mode: overlay;
-    background-size: cover; 
-    position: relative; 
-    top: 0; 
-    left: 0; 
-  
-    /* Preserve aspect ratio */
-    min-width: 100%;
-    min-height: 100%;
-
-    /* Align items */
-    display: table; 
-
-    
-    height: 100vh;
+export const Container = styled.div`
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    padding-right: 1%;
+    padding-left: 1%;
+    padding-top: 1%;
 `
 
-export const CenteringBox = styled.div`
-    display: table-cell; 
-    vertical-align: middle;
+export const Logo = styled.img`
 `
 
-export const Headline = styled.h1`
+export const Title = styled.a`
+    text-decoration: none;
+    color: black;
     font-family: "Poppins", Helvetica, sans-serif;
     font-weight: 700;
-
     @media (max-width: 500px) {
+        font-size: 1.4em;
+        margin-right: 2%;
+
+      }
+    
+    @media (min-width: 501px) {
         font-size: 1.7em;
-        padding-left: 5%;
-      }
+        margin-right: 2%;
 
-    @media (min-width: 501px) {
-        font-size: 2.5em;
-        padding-left: 10%;
       }
-
+    
     @media (min-width: 1200px) {
-        font-size: 3em;
-        padding-left: 20%;
+        font-size: 2em;
+        margin-right: 0.75%;
+    }
+
+    &:hover {
+        color: black;
     }
 `
 
-export const Subline = styled.h3`
-    font-family: "Roboto", Helvetica, sans-serif;
+export const Demo = styled.a`
+    text-decoration: none;
+    color: black;
+    font-family: "Poppins", Helvetica, sans-serif;
     font-weight: 500;
-    font-size: 1em;
 
     @media (max-width: 500px) {
-        padding-left: 5%;
-        padding-right: 2%;
-      }
+        font-size: 0.9em;
 
+      }
+    
     @media (min-width: 501px) {
-        padding-left: 10%;
-        padding-right: 3%;
+        font-size: 1.2em;
+
       }
-
+    
     @media (min-width: 1200px) {
-        padding-left: 20%;
+        font-size: 1.4em;
     }
-`
 
+    &:hover {
+        color: #5e5d5d;
+    }
+
+`
 
 export const ButtonContainer = styled.button`
+float: right;
 --button_radius: 0.75em;
 --button_color: #e8e8e8;
 --button_outline_color: #000000;
@@ -78,23 +78,21 @@ position: relative;
 margin-top: 1%;
 
 @media (max-width: 500px) {
-    left:5%;
     font-size: 12px;
 
   }
 
 @media (min-width: 501px) {
-    left:10%;
     font-size: 15px;
   }
 
 @media (min-width: 1200px) {
-    left:20%;
     font-size: 17px;
 }
 `
 
 export const ButtonTop = styled.span`
+float: right;
 display: block;
 box-sizing: border-box;
 border: 2px solid var(--button_outline_color);

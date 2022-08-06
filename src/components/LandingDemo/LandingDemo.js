@@ -69,9 +69,8 @@ export default function LandingDemo() {
 
 
     return (
-        <Background>
+        <Background id='demo'>
             <Padding>
-
                 <Row className={`${isMobile ? "" : "align-items-center"}`} >
                     <Header>Seraphina generates completions to your writing in your writing style, providing inspiration and direction.</Header>
                     <Col sm>

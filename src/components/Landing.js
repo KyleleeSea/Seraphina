@@ -1,6 +1,7 @@
-import LandingNav from "../components/Navbar/LandingNavbar.js"
+import LandingNav from "./LandingNavbar/LandingNavbar.js"
 import LandingHeader from "./LandingHeader/LandingHeader.js";
 import LandingDemo from "./LandingDemo/LandingDemo.js";
+import LandingBulletpoints from "./LandingBulletpoints/LandingBulletpoints.js";
 
 export default function Landing() {
     return (
@@ -8,6 +9,7 @@ export default function Landing() {
             <LandingNav />
             <LandingHeader />
             <LandingDemo />
+            <LandingBulletpoints />
         </div>
     )
 }
