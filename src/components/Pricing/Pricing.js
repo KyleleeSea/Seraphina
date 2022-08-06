@@ -116,7 +116,7 @@ function Pricing() {
                                     onApprove={(data, actions) => {
                                         return actions.order.capture().then((details) => {
                                             updateUserMetadata(50)
-                                            alert(`Transaction completed successfully! +250 tokens`)
+                                            alert(`Transaction completed successfully! You now have +50 tokens`)
                                         });
                                     }}
                                 />
@@ -146,7 +146,7 @@ function Pricing() {
                                     onApprove={(data, actions) => {
                                         return actions.order.capture().then((details) => {
                                             updateUserMetadata(125)
-                                            alert(`Transaction completed successfully! +550 tokens`)
+                                            alert(`Transaction completed successfully! You now have +125 tokens`)
                                         });
                                     }}
                                 />
@@ -176,7 +176,7 @@ function Pricing() {
                                     onApprove={(data, actions) => {
                                         return actions.order.capture().then((details) => {
                                             updateUserMetadata(450)
-                                            alert(`Transaction completed successfully! You now have +2000 tokens`)
+                                            alert(`Transaction completed successfully! You now have +450 tokens`)
                                         });
                                     }}
                                 />
