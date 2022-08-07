@@ -1,4 +1,4 @@
-import { Container, Logo, Title, Demo, ButtonContainer, ButtonTop } from './LandingNavbar.styles.js'
+import { Container, Title, Demo, ButtonContainer, ButtonTop } from './LandingNavbar.styles.js'
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function LandingNav() {
@@ -6,7 +6,6 @@ export default function LandingNav() {
 
     return (
         <Container>
-            <Logo></Logo>
             <Title>Seraphina</Title>
             <Demo href='/#demo'>Demo</Demo>
             <ButtonContainer>

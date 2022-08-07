@@ -10,6 +10,7 @@ export const Padding = styled.div`
     padding-top: 2%;
     padding-right: 2%;
     padding-left: 2%;
+    padding-bottom: 2%;
 
     @media (max-width: 500px) {
         paddsng-left: 6%;
@@ -28,8 +29,7 @@ export const Text = styled.h3`
     color: white;
     font-family: "Roboto", Helvetica, sans-serif;
     font-weight: 500;
-    font-size: 1.5em;
-
+    
     @media (max-width: 500px) {
         font-size: 1.2em;
       }

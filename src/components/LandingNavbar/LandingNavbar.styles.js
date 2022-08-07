@@ -9,9 +9,6 @@ export const Container = styled.div`
     padding-top: 1%;
 `
 
-export const Logo = styled.img`
-`
-
 export const Title = styled.a`
     text-decoration: none;
     color: black;
