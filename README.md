@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/KyleleeSea/Seraphina">
+    <img src="https://i.imgur.com/Pa0MIKx.png" alt="Logo" width="80" height="80">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">Seraphina</h1>
 
-## Available Scripts
+  <p align="center">
+    <h4>
+      An AI powered website that sparks inspiration for creative writing
+    </h4>
+    <br />
+    <a href="https://seraphinai.com/">View Demo</a>
+    ·
+    <a href="https://github.com/KyleleeSea/Seraphina/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/KyleleeSea/Seraphina/issues">Request Feature</a>
+  </p>
+</div>
 
-In the project directory, you can run:
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-### `npm start`
+[![Seraphina Screen Shot][product-screenshot]](https://seraphinai.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Seraphina is a production level web application created to help writers overcome writer's block by utilizing a fine-tuned GPT3 model to output possible sentences that follow where the user is stuck in order to provide inspiration.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### The AI
+The fine-tuned model was created utilizing text from open source short stories found online. The dataset was created by web scraping with Selenium (a headless browser) in Python. Full dataset and Python notebooks available upon request. 
 
-### `npm test`
+### Security
+In order to prevent users from making excessive calls to the Seraphina site, I used Auth0 to setup authentication, and require users to be logged in to an account in order to utilize the AI. Users are given ten free tokens to use the AI. Further tokens can be bought through the Seraphina site.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Built With
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [![React][React.js]][React-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![Auth0][Auth0.com]][Auth0-url]
+* [![PayPal SDK][Paypal.com]][Paypal-url]
+* [![GPT3][Openai.com]][GPT3-url]
+* [![Selenium][Selenium.dev]][Selenium-url]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Live Demo
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Please view the full demo of Seraphina here: <a href="https://seraphinai.com/">Seraphinai.com</a>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Local Copy
+You may run this project locally by following these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the repo
+   ```sh
+   git clone https://github.com/KyleleeSea/Seraphina
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Create a .env file
+4. Create your own OpenAI account and include your key in the .env file in variable "REACT_APP_OPENAI_API_KEY"
+5. Refactor to your own Auth0 account and include keys "REACT_APP_AUTH0_CLIENT_ID" and "REACT_APP_AUTH0_DOMAIN" in .env
+6. Include your own PayPal developer application keys in "REACT_APP_PAYPAL_SECRET" and "REACT_APP_PAYPAL_CLIENTID" in .env
+7. In terminal:
+   ```sh
+   npm run start
+   ```
+   
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<!-- CONTACT -->
+## Contact
 
-## Learn More
+Twitter - [@KyleleeSea](https://twitter.com/KyleleeSea)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Project Link: [https://github.com/KyleleeSea/Seraphina](https://github.com/KyleleeSea/Seraphina)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- MARKDOWN LINKS & IMAGES -->
+[product-screenshot]: https://i.imgur.com/AQqjqiK.png
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[Auth0.com]: https://img.shields.io/badge/Auth0-000000?style=for-the-badge&logo=auth0&logoColor=635DFF
+[Auth0-url]: https://auth0.com/
+[Paypal.com]: https://img.shields.io/badge/Paypal_SDK-35495E?style=for-the-badge&logo=paypal&logoColor=4FC08D
+[Paypal-url]: https://developer.paypal.com/home
+[Openai.com]: https://img.shields.io/badge/GPT3-F7F7F8?style=for-the-badge&logo=openai&logoColor=000000
+[GPT3-url]: https://openai.com/
+[Selenium.dev]: https://img.shields.io/badge/Selenium-49B230?style=for-the-badge&logo=selenium&logoColor=ffffff
+[Selenium-url]: https://www.selenium.dev/
