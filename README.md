@@ -33,6 +33,12 @@ The fine-tuned model was created utilizing text from open source short stories f
 ### Security
 In order to prevent users from making excessive calls to the Seraphina site, I used Auth0 to setup authentication, and require users to be logged in to an account in order to utilize the AI. Users are given ten free tokens to use the AI. Further tokens can be bought through the Seraphina site.
 
+### Features
+- Fully trained natural language processing AI
+- Authentication with user metadata 
+- Payment system utilizing PayPal SDK 
+- Mobile responsive landing page 
+- Landing demo utilizing react hooks
 
 ### Built With
 
@@ -42,8 +48,6 @@ In order to prevent users from making excessive calls to the Seraphina site, I u
 * [![PayPal SDK][Paypal.com]][Paypal-url]
 * [![GPT3][Openai.com]][GPT3-url]
 * [![Selenium][Selenium.dev]][Selenium-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## Live Demo
