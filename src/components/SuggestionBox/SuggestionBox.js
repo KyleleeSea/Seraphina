@@ -119,7 +119,7 @@ export default function SuggestionBox(props) {
             }
 
             else {
-                setResponse(<p>You do not have enough tokens to execute!</p>)
+                setResponse(<p>Not enough tokens! <a href='/pricing'>See Pricing</a></p>)
             }
 
         } catch (e) {

@@ -100,7 +100,7 @@ export default function LandingDemo() {
                     </Col>
                     <Col sm>
                         <OutputBox>
-                            {output.map(text => <OutputText>{text}</OutputText>)}
+                            {output.map((text, index) => <OutputText key={index}>{text}</OutputText>)}
                         </OutputBox>
                     </Col>
                 </Row>
