@@ -4,6 +4,8 @@ import Navigation from './Navbar/Navbar.js'
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import { useEffect, useState } from 'react';
 
+// Generate page
+
 function Main() {
     const { user, getAccessTokenSilently } = useAuth0();
     const [tokens, setTokens] = useState('');
@@ -46,6 +48,7 @@ function Main() {
     )
 }
 
+// returnTo set to production URL
 export default withAuthenticationRequired(Main, {
-    returnTo: "http://localhost:3000/generate"
+    returnTo: "https://seraphinai.com/generate"
 });

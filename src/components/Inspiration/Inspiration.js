@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 
+// Text component for SuggestionBox.js outputs 
 class Inspiration extends Component {
     render() {
         return (

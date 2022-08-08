@@ -11,8 +11,8 @@ root.render(
     <Auth0Provider
       domain={process.env.REACT_APP_AUTH0_DOMAIN}
       clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
-      // Hardcoded link. MUST CHANGE on public deployment.
-      redirectUri='http://localhost:3000/generate'
+      // redirectUri set to production URL
+      redirectUri='https://seraphinai.com/generate'
       cacheLocation="localstorage"
       scope='user_metadata app_metadata read:current_user update:current_user_metadata'
       audience="https://seraphina.us.auth0.com/api/v2/"

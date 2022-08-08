@@ -189,6 +189,7 @@ function Pricing() {
     );
 }
 
+// Set to production URL.
 export default withAuthenticationRequired(Pricing, {
-    returnTo: "http://localhost:3000/generate"
+    returnTo: "https://seraphinai.com/generate"
 });

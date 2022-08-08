@@ -18,6 +18,7 @@ export default function TextInput() {
                 required
                 name="input"
             />
+            {/* Change color to red if less than minimum required characters */}
             <Text style={{ color: (textAreaCount > 200 ? '#009e4c' : '#8c0200') }}>{textAreaCount}/500</Text>
         </div>
     );

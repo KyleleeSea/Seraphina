@@ -1,14 +1,10 @@
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/esm/Container';
 import { useState } from 'react';
 import LoginButton from '../Login/LoginButton.js';
 import LogoutButton from '../Logout/LogoutButton.js';
-// import { useTokensFetch } from "../hooks/useTokensFetch.js";
 
 const Navigation = (props) => {
-    // Utilizing Auth0 rules to access tokens 
-    // const { tokens, setTokens } = useTokensFetch();
 
     const [width, setWidth] = useState(window.innerWidth)
 

@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 
 
 export default function LandingDemo() {
+    // Example demo outputs
     const TarzanOutputs = ['1. D’Arnot took the paper from Tarzan’s shaking hand and read the message. His face blanched as he took in the news. “We have to go, now.”',
         '2. As Tarzan read the message, a sinking feeling grew in the pit of his stomach. This was it—the moment he had been dreading for weeks. “Pack your bags,” he said to D’Arnot, “we’re going to London.”',
         '3. D’Arnot read the message and looked up at Tarzan with confusion. “I don’t understand,” he said. “What does it mean?”',
@@ -71,6 +72,7 @@ export default function LandingDemo() {
     return (
         <Background id='demo'>
             <Padding>
+                {/* Centers element only if not mobile */}
                 <Row className={`${isMobile ? "" : "align-items-center"}`} >
                     <Header>Seraphina generates completions to your writing in your writing style, providing inspiration and direction.</Header>
                     <Col sm>
