@@ -12,7 +12,7 @@
       An AI powered website that sparks inspiration for creative writing
     </h4>
     <br />
-    <a href="https://seraphinai.com/">View Demo</a>
+<!--     <a href="https://seraphinai.com/">View Demo</a> -->
     ·
     <a href="https://github.com/KyleleeSea/Seraphina/issues">Report Bug</a>
     ·
@@ -50,9 +50,9 @@ In order to prevent users from making excessive calls to the Seraphina site, I u
 * [![Selenium][Selenium.dev]][Selenium-url]
 
 
-## Live Demo
+<!-- ## Live Demo
 
-Please view the full demo of Seraphina here: <a href="https://seraphinai.com/">Seraphinai.com</a>
+Please view the full demo of Seraphina here: <a href="https://seraphinai.com/">Seraphinai.com</a> -->
 
 ## Local Copy
 You may run this project locally by following these steps:
